@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test</title>
+
+	</head>
+	<style>
+
+body{
+font-family: cambria;
+background:#E7F3FF;
+
+}
+.timer{
+
+font-family:cambria;
+color:#5F4BBE;
+font-size:20px;
+style:bold;
+}
+.container
+{
+	height: 330px;
+	width:1000px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	background: rgba(225, 225, 225, 0.5);
+	padding: 20px;
+	border: 1px solid #08038C;
+	box-shadow: 0 0 8px 3px #fff;
+  border-radius: 10px;
+
+}
+.title
+{
+	padding-top: 0px;
+	text-align: center;
+	font-size: 36px;
+	text-transform: uppercase;
+	color: #08038C
+}
+.question
+{
+	padding: 20px;
+	font-size: 22px;
+	background: #5F4BBE;
+	border-radius: 20px;
+	margin:10px 0 10px 0;
+	color: #f6f6f6;
+}
+.option
+{
+	width: 470px;
+	display: inline-block;
+	padding: 10px 0 10px 15px;
+	vertical-align: middle;
+	background: #C37DDA;
+	margin: 10px 0 10px 10px;
+	color: #000000;
+	border-radius: 20px;
+}
+.option:hover
+{
+	background: #5F4BBE;
+	color: #f6f6f6;
+}
+.next-btn
+{
+	border:none;
+	outline: none;
+	background:#C37DDA;
+	width: 100px;
+	height: 35px;
+	border-radius: 20px;
+	cursor: pointer;
+	float:right;
+	margin: 10px;
+}
+.next-btn:hover
+{
+ background: #5F4BBE;
+ color: #f6f6f6;
+}
+.result
+{
+	height: 100px;
+	text-align: center;
+	font-size: 75px;
+}
+
+.option input:checked.option
+{
+	background: #0803BC;
+	color: #000;
+}
+</style>
+	<body>
+		<div id="quizContainer" class="container">
+			<div id="timer" class="timer">2:00</div>
+			<div class="title">JAVA</div>
+			<div id="question" class="question"></div>
+			<label class="option"><input type="radio" name="option" value="1" /> <span id="opt1"></span></label>
+			<label class="option"><input type="radio" name="option" value="2" /> <span id="opt2"></span></label>
+			<label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
+			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
+			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next</button>
+		</div>
+		<div id="result" class="container result" style="display:none;">
+		</div>
+
+
+<script>
+var timeoutHandle;
+function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes
+    function tick() {
+        var counter = document.getElementById("timer");
+        var current_minutes = mins-1
+        seconds--;
+        counter.innerHTML =
+        current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        if( seconds > 0 ) {
+            timeoutHandle=setTimeout(tick, 1000);
+        } else {
+
+            if(mins > 1){
+
+               // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
+               setTimeout(function () { countdown(mins - 1); }, 1000);
+
+            }
+        }
+    }
+    tick();
+}
+
+countdown(2);
+
+
+
+	var questions = [{
+	"question": "What would be the behaviour if this() and super() used in a method?",
+	"option1" : "Runtime error",
+	"option2" : "Throws exception",
+	"option3" : "compile time error",
+	"option4" : "Runs successfully",
+	"answer": "3"
+},{
+	"question": "What would be behaviour if constructor has a return type?",
+	"option1" : "Compilation error",
+	"option2" : "Runtime error",
+	"option3" : "Compilation and runs successfully",
+	"option4" : "Only String return type is allowed",
+	"answer": "1"
+},{
+	"question": "Which of these keywords can be used to prevent Method overriding?",
+	"option1" : "static",
+	"option2" : "constant",
+	"option3" : "protected",
+	"option4" : "final",
+	"answer": "4"
+},{
+	"question": "Which of these is supported by method overriding in Java?",
+	"option1" : "bstraction",
+	"option2" : "Encapsulation",
+	"option3" : "Polymorphism",
+	"option4" : "None of the mentioned",
+	"answer": "3"
+},{
+	"question": "Which of these keyword must be used to inherit a class?",
+	"option1" : "super",
+	"option2" : "this",
+	"option3" : "extent",
+	"option4" : "extends",
+	"answer": "4"
+},{
+	"question": "Which of these methods is an alternative to getChars() that stores the characters in an array of bytes",
+	"option1" : "getchars()",
+	"option2" : "GetChars()",
+	"option3" : "Getchars()",
+	"option4" : "getChars()",
+	"answer": "4"
+},{
+	"question": "Which of these method of class StringBuffer is used to extract a substring from a String object?",
+	"option1" : "substring()",
+	"option2" : "Substring()",
+	"option3" : "SubString()",
+	"option4" : "None of the mentioned",
+	"answer": "1"
+},{
+	"question": "Which of these method of class StringBuffer is used to get the length of sequence of characters",
+	"option1" : "length()",
+	"option2" : "capacity()",
+	"option3" : "Length()",
+	"option4" : "Capacity()",
+	"answer": "1"
+}];
+var currentQuestion = 0;
+var score = 0;
+var totQuestions = questions.length;
+
+var container = document.getElementById('quizContainer');
+var questionEl = document.getElementById('question');
+var opt1 = document.getElementById('opt1');
+var opt2 = document.getElementById('opt2');
+var opt3 = document.getElementById('opt3');
+var opt4 = document.getElementById('opt4');
+var nextButton = document.getElementById('nextButton');
+var resultCont = document.getElementById('result');
+
+function loadQuestion (questionIndex) {
+	var q = questions[questionIndex];
+	questionEl.textContent = (questionIndex + 1) + '. ' + q.question;
+	opt1.textContent = q.option1;
+	opt2.textContent = q.option2;
+	opt3.textContent = q.option3;
+	opt4.textContent = q.option4;
+};
+
+function loadNextQuestion () {
+	var selectedOption = document.querySelector('input[type=radio]');
+	var answer = selectedOption.value;
+	if(questions[currentQuestion].answer == answer){
+		score += 1;
+	}
+	selectedOption.checked = false;
+	currentQuestion++;
+	if(currentQuestion == totQuestions - 1){
+		nextButton.textContent = 'Finish';
+	}
+	if(currentQuestion == totQuestions){
+		container.style.display = 'none';
+		resultCont.style.display = '';
+		resultCont.textContent = 'Your Score: ' + score +'/' + totQuestions;
+		return;
+	}
+	loadQuestion(currentQuestion);
+}
+
+loadQuestion(currentQuestion);
+</script>
+	</body>
+</html>

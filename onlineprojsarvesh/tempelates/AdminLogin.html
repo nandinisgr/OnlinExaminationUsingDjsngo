@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+      <title>Student | Login</title>
+      <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <style>
+	     *{font-family:Cambria; font-weight: 400;
+		   color: black;font-size: 25px;color:black; border-radius: 10px;}
+       body
+       {
+         height: 97.5vh;
+           background-size: cover;
+           background-position: center;
+           background:#E7F3FF;
+       }
+       .button2{
+         font-family:cambria;
+         color:#000000;
+         outline:0;
+         background:#C37DDA;
+         width:10%;
+         padding:12px;
+         font-size:14px;
+         cursor:pointer;
+         border-radius: 31px;
+         box-shadow: 0 9px #99;
+          border: none;
+       }
+       .button2:hover
+       {
+        background: #5F4BBE;
+        color: #f6f6f6;
+       }
+        .button3
+        {
+
+          outline:0;
+          background:#C37DDA;
+          width:10%;
+          padding:12px;
+          color:#000000;
+          font-size:14px;
+          cursor:pointer;
+          border-radius: 31px;
+          box-shadow: 0 9px #99;
+           border: none;
+
+        }
+        .button3:hover
+        {
+         background: #5F4BBE;
+         color: #f6f6f6;
+         border-color:#C37DDA;
+        }
+        .button4{
+          font-family:cambria;
+          outline:0;
+          background:#C37DDA;
+          width:10%;
+          border-radius: 31px;
+          padding:12px;
+          color:#000000;
+          font-size:14px;
+          cursor:pointer;
+          box-shadow: 0 9px #99;
+           border: none;
+
+        }
+        .button4:hover
+        {
+         background: #5F4BBE;
+         color: #f6f6f6;
+        }
+		 .form{
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-left : 5px;
+          padding-right: 5px;
+          margin-left: 50px;
+          margin-right: 50px;
+          margin-top:100px;
+          margin-bottom: 100px;
+          height : 200px;
+          width : 780px;
+          padding: 10px;
+          border:1px;
+		  }
+      .tableclass {
+          border-radius: 31px;
+
+      }
+
+	  </style>
+</head>
+<body>
+  <div><center>
+    <a href="{% url 'AdminRegister' %}"><button type="button" style="font-size: 15px; float:left" class="button2">Register</button></a>
+    <a href="{% url 'AdminForgot_PW' %}"><button type="button" style="font-size: 15px;float:right" class="button3">Forgot Password</button></a>
+</center>
+</div>
+
+
+  <br>
+  <br>
+  <center>
+  <div style="">
+    <form class="form" method="post">{% csrf_token %}
+    <div class="tableclass">
+    <table>
+    {% for field in form %}
+    <tbody>
+    <tr>
+      <td>
+        <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle; color:white">{{ field.label_tag }}</label>
+      </td>
+      <td>
+        {{ field }}
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </div>
+  <a href="{% url 'AdminDashBoard' %}"><button type="submit" style="width:116px; margin:10px; font-size:15px;" class="button2">submit</button></a>
+  <a href="{% url 'AdminLogin' %}"><button type="button" style="width:100px;margin:6px;font-size:15px;" class="button4">reset</button></a>
+    </form>
+  </div>
+
+</center>
+</body>
+</html>

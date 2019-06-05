@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+      <title>Forgot | Password</title>
+      <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <style>
+	     *{font-family:Cambria; font-weight: 400;
+		   color: black;font-size: 25px;color:black; 25px;background-image: url('{% static "image/project3.jpg"%}');}
+       body
+       {
+         height: 97.5vh;
+           background-size: cover;
+           background-position: center;
+           background:#E7F3FF;
+       }
+		 .form{
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-left : 5px;
+          padding-right: 5px;
+          margin-left: 50px;
+          margin-right: 50px;
+          margin-bottom: 100px;
+          height : 370px;
+          width : 780px;
+		  }
+    .button1{
+      font-family:cambria;
+      color:#000000;
+      outline:0;
+      background:#C37DDA;
+      width:10%;
+      padding:12px;
+      font-size:14px;
+      cursor:pointer;
+      border-radius: 31px;
+      box-shadow: 0 9px #99;
+       border: none;
+    }
+    .button1:hover
+    {
+     background: #5F4BBE;
+     color: #f6f6f6;
+
+    }
+
+    .button2{
+      font-family:cambria;
+      color:#000000;
+      outline:0;
+      background:#C37DDA;
+      width:10%;
+       border: none;
+      padding:12px;
+      font-size:14px;
+      cursor:pointer;
+      border-radius: 31px;
+      box-shadow: 0 9px #99;
+    }
+    .button2:hover
+    {
+     background: #5F4BBE;
+     color: #f6f6f6;
+
+    }
+      .tableclass {
+        background-color:#ffffff;
+        border-radius: 10px;
+        padding: 8px;
+        width:80%;
+      }
+
+	  </style>
+</head>
+<body>
+  <center>
+  <div>
+    <form class="form" method="post">{% csrf_token %}
+    <div class="tableclass">
+    <table>
+    {% for field in form %}
+    <tbody>
+    <tr>
+      <td>
+        <label for="{{ field.label }}" style="display:inline-block;vertical-align:middle">{{ field.label_tag }}</label>
+      </td>
+      <td>
+        {{ field }}
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </div>
+  <div><a href="{% url 'StudentDashBoard' %}"><button type="submit" style="width:180px;margin:6px;"class="button1">submit</button></a>
+    <a href="{% url 'StudentLogin' %}"><button type="button" style="width:180px;margin:7px;"class="button2">cancel</button></a>
+  </div>
+  </form>
+</div>
+
+</center>
+</body>
+</html>

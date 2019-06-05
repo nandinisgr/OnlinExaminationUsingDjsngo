@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title>Exam</title>
+<h1 style=" left-margin:10px; color:black; font-size:40px; font-family:cambria">Exam Details</h1>
+<style>
+body
+{
+  height: 97.5vh;
+    background-size: cover;
+    background-position: center;
+background:#E7F3FF;
+}
+
+.details {
+    background-color: white;
+    width: 400px;
+    border: 9px;
+    padding: 25px;
+    margin: 20px;
+    top-margin:50px;
+    color: #5C4ABE;
+    border-color:#5F4BBE;
+    position: center;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.go
+{
+	font-family:cambria;
+	width: 11%;
+	background:#C37DDA;
+	padding: 10px;
+	font-size: 14px;
+	outline: none;
+	cursor: pointer;
+	border-radius: 20px;
+	text-align:center;
+	 border: none;
+
+}
+.go:hover{
+background: #5F4BBE;
+color: #f6f6f6;
+}
+</style>
+</head>
+<body>
+
+<center><div class="details" style="margin-top: 30px;">
+	<center>
+	1.The exam has 45 questions.<br>
+	2.Each qsn has its own time.  <br>
+	3.You can't skip any question.<br>
+	4.Each question carry 1 mark.<br>
+	</center>
+</div>
+<a href="{% url 'test' %}"> <button class="go">Start exam</button>
+
+
+</body>
+</html>
+
+
+
+</head></html>

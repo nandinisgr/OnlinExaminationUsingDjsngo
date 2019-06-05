@@ -1,0 +1,10 @@
+body
+{
+  height: 97.5vh;
+    background-size: cover;
+    background-position: center;
+background:-webkit- linear-gradient(to top,#5C4ABE,#C37DDA);
+background: -moz-linear-gradient(to top,#5C4ABE,#C37DDA);
+background: -o-linear-gradient(to top,#5C4ABE,#C37DDA);
+background: linear-gradient(to top,#5C4ABE,#C37DDA);
+}

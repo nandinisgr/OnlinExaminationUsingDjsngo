@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+      <title>Student | Login</title>
+      <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <style>
+	     *{font-family: Cambria; font-weight: 400;
+		   color: black;font-size: 35px;color:#C37DDA;}
+       body
+       {
+         height: 97.5vh;
+           background-size: cover;
+           background-position: center;
+       background:#E7F3FF;
+     }
+.button1
+{
+	font-family:cambria;
+	outline:0;
+	width:30%;
+  border: none;
+  background:#C37DDA;
+	border-color:#5F4BBE;
+	padding:12px;
+	color:#000000;
+	font-size:14px;
+	cursor:pointer;
+	border-radius: 31px;
+	box-shadow: 0 9px #99;
+}
+.button1:hover
+{
+ background: #5F4BBE;
+ color: #f6f6f6;
+ border-color:#C37DDA;
+}
+		 .form{
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-left : 5px;
+          padding-right: 5px;
+          margin-left: 50px;
+          margin-right: 50px;
+          margin-top:100px;
+          margin-bottom: 100px;
+          height : 200px;
+          width : 780px;
+          background-color: #000;
+          padding: 10px;
+		  }
+      .tableclass {
+        background-color:#ffffff;
+        border-radius: 10px;
+        padding: 8px;
+        width:80%;
+      }
+
+	  </style>
+</head>
+<body class="body">
+  <center>
+    <div class="buttons">
+      <br>
+      <a href="{% url 'StudentLogin' %}"><center><button type="button" class="button1">Student Login</button></center></a>
+      <a href="{% url 'AdminLogin' %}"><center><button type="button" class="button1">Admin Login</button></center></a>
+    </div>
+  </center>
+</body>
+</html>

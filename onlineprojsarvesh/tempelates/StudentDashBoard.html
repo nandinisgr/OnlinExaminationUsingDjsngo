@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+	height: 97.5vh;
+		background-size: cover;
+		background-position: center;
+background:#F0FFFF;
+}
+select{
+	font-family:cambria;
+    background-color: #ffffff;
+    width: 26%;
+    color:#6F53C3;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    border-color:#5F4BBE;
+    border-radius: 10px;
+    margin-left: 35px;
+    margin-top:108px;
+
+}
+body
+{
+  height: 97.5vh;
+    background-size: cover;
+    background-position: center;
+background:#F0FFFF;
+}
+
+
+.go{
+
+	outline:0;
+	background:#C37DDA;
+	width:5%;
+	padding:12px;
+	color:#000000;
+	font-size:14px;
+	cursor:pointer;
+	border-radius: 31px;
+	box-shadow: 0 9px #99;
+	text-align:center;
+	 border: none;
+
+}
+.go:hover
+{
+ background: #5F4BBE;
+ color: #f6f6f6;
+
+}
+
+
+
+</style>
+</head>
+<body>
+<h1 style=" color:black; font-size:40px; font-family:Cambria;">SEARCH EXAMS HERE!</h1>
+
+<select>
+		<option><a>Select Exam Here!</a></option>
+		<option><a href="#Java">Java</a></option>
+		<option><a href="#JavaScript">JavaScript</a></option>
+</select>
+    <a href="{% url 'ExamDetails' %}"> <button class="go">go</button>
+</body>
+</html>
